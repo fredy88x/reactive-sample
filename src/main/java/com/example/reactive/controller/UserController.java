@@ -1,6 +1,5 @@
 package com.example.reactive.controller;
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -68,11 +67,6 @@ public class UserController {
 	    public Flux<User> getUsersByAge(@PathVariable int age) {
 	        return userService.findUsersByAge(age);
 	    }
-
-	    /*@PostMapping("/search/id")
-	    public Flux<User> fetchUsersByIds(@RequestBody List<Integer> ids) {
-	        return userService.fetchUsers(ids);
-	    }*/
 
 	    @GetMapping("/{userId}/department")
 	    public Mono<UserDepartmentDTO> fetchUserAndDepartment(@PathVariable Integer userId){
