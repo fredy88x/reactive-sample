@@ -1,6 +1,5 @@
 package com.example.reactive.service;
 
-import java.util.List;
 import java.util.function.BiFunction;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +34,7 @@ public class UserService {
 	}
 
 	public Flux<User> getAllUsers() {
+		log.info("list users ");
 		return userRepository.findAll();
 	}
 
