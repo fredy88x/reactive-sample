@@ -59,14 +59,6 @@ public class UserService {
 		return departmentRepository.findByUserId(userId);
 	}
 
-	/*public Flux<User> fetchUsers(List<Integer> userIds) {
-		return Flux.fromIterable(userIds)
-        .parallel()
-        .runOn(Schedulers.boundedElastic())
-        .flatMap(i -> findById(i))
-        .ordered((u1, u2) -> u2.getId() - u1.getId());
-	}*/
-
 	public Mono<User> updateUser(Integer userId, User user) {
 		return userRepository.findById(userId.longValue())
                 .flatMap(dbUser -> {
