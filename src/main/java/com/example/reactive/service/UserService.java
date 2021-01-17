@@ -13,12 +13,14 @@ import com.example.reactive.entitys.User;
 import com.example.reactive.repository.DepartmentRepository;
 import com.example.reactive.repository.UserRepository;
 
+import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import reactor.core.scheduler.Schedulers;
 
 @Service
 @Transactional
+@Slf4j
 public class UserService {
 
 	@Autowired
@@ -28,6 +30,7 @@ public class UserService {
 	private DepartmentRepository departmentRepository;
 	
 	public Mono<User> createUser(User user) {
+		log.info("create users");
 		return userRepository.save(user);
 	}
 
